@@ -7,9 +7,16 @@ import torch.nn as nn
 # === Streamlit Setup ===
 st.set_page_config(page_title="AgroInspector 🌿", layout="centered")
 
+# === Project Heading and Description ===
 st.title("🌾 AgroInspector")
-st.subheader("Crop Image Inspector using Deep Learning")
-st.markdown("Upload a crop image to detect if it's **illegal**, and if not, assess its **health status** and **type**.")
+st.markdown("### An AI-powered system to inspect crop legality and health status.")
+st.markdown(
+    "AgroInspector is a deep learning-based pipeline that detects whether a crop image is **illegal** or **legal**, "
+    "and if legal, further determines whether it's **healthy** or **diseased**, along with the **crop or disease type**."
+)
+st.markdown("---")
+
+st.subheader("🖼️ Upload a crop image to begin")
 
 # === Device ===
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -103,7 +110,7 @@ uploaded_file = st.file_uploader("📤 Upload a crop image", type=["jpg", "jpeg"
 
 if uploaded_file:
     image = Image.open(uploaded_file)
-    st.image(image, caption="📸 Uploaded Image", use_column_width=True)
+    st.image(image, caption="📸 Uploaded Image", use_container_width=False, width=300)
 
     with st.spinner("Running deep learning inference..."):
         result = run_pipeline(image)
@@ -113,3 +120,4 @@ if uploaded_file:
     st.markdown("---")
     for k, v in result.items():
         st.markdown(f"**{k}**: {v}")
+
