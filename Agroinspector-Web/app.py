@@ -57,18 +57,17 @@ healthy_crop_types = [
 def load_model(path, num_classes):
     model = models.resnet18(weights='IMAGENET1K_V1')
     model.fc = nn.Linear(model.fc.in_features, num_classes)
-    # model.load_state_dict(torch.load(path, map_location=device))
-    model.load_state_dict(torch.load(path, map_location=device, weights_only=False))
+    model.load_state_dict(torch.load(path, map_location=device))
     model.to(device)
     model.eval()
     return model
 
 # === Load All 5 Models ===
-model1 = load_model("Agroinspector-Web/illegal_binary_classifier.pth", 2)
-model2 = load_model("Agroinspector-Web/illegal_crop_type_classifier.pth", 10)
-model3 = load_model("Agroinspector-Web/healthy_vs_diseased_classifier.pth", 2)
-model4 = load_model("Agroinspector-Web/disease_classifier.pth", 46)
-model5 = load_model("Agroinspector-Web/healthy_crop_classifier.pth", 14)
+model1 = load_model("illegal_binary_classifier.pth", 2)
+model2 = load_model("illegal_crop_type_classifier.pth", 10)
+model3 = load_model("healthy_vs_diseased_classifier.pth", 2)
+model4 = load_model("disease_classifier.pth", 46)
+model5 = load_model("healthy_crop_classifier.pth", 14)
 
 # === Transform ===
 infer_transform = transforms.Compose([
