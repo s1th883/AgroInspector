@@ -57,7 +57,8 @@ healthy_crop_types = [
 def load_model(path, num_classes):
     model = models.resnet18(weights='IMAGENET1K_V1')
     model.fc = nn.Linear(model.fc.in_features, num_classes)
-    model.load_state_dict(torch.load(path, map_location=device))
+    # model.load_state_dict(torch.load(path, map_location=device))
+    model.load_state_dict(torch.load(path, map_location=device, weights_only=False))
     model.to(device)
     model.eval()
     return model
