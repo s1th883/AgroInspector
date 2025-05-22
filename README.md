@@ -2,6 +2,9 @@
 
 AgroInspector is a deep learning-based Streamlit web application that assists farmers, researchers, and policymakers in identifying crop legality and plant diseases from images. It combines computer vision and intelligent classification models in a seamless pipeline to ensure agricultural monitoring and decision support.
 
+🚀 **Live Demo**: [AgroInspector Streamlit App](https://agro-stream-bht7y3jgbzfgvyuhumbet9.streamlit.app/)
+
+
 ---
 
 ## 🚀 Features
