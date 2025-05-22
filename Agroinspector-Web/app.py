@@ -63,11 +63,11 @@ def load_model(path, num_classes):
     return model
 
 # === Load All 5 Models ===
-model1 = load_model("illegal_binary_classifier.pth", 2)
-model2 = load_model("illegal_crop_type_classifier.pth", 10)
-model3 = load_model("healthy_vs_diseased_classifier.pth", 2)
-model4 = load_model("disease_classifier.pth", 46)
-model5 = load_model("healthy_crop_classifier.pth", 14)
+model1 = load_model("AgroInspector-Web/illegal_binary_classifier.pth", 2)
+model2 = load_model("AgroInspector-Web/illegal_crop_type_classifier.pth", 10)
+model3 = load_model("AgroInspector-Web/healthy_vs_diseased_classifier.pth", 2)
+model4 = load_model("AgroInspector-Web/disease_classifier.pth", 46)
+model5 = load_model("AgroInspector-Web/healthy_crop_classifier.pth", 14)
 
 # === Transform ===
 infer_transform = transforms.Compose([
